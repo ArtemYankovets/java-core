@@ -22,8 +22,8 @@ public class IOTest {
     public void testOfReadingFromFile() throws IOException {
 
         Path dirPath = Paths.get("src/main/resources/books/");
-        File file = new File(dirPath + "/1.txt");
-        assertEquals("src\\main\\resources\\books\\1.txt", file.getPath());
+        File file = new File(dirPath + "/King Stephen. It - royallib.ru.txt");
+        assertEquals("src\\main\\resources\\books\\King Stephen. It - royallib.ru.txt", file.getPath());
 
         // Get list of file
         List<Path> listFilePaths = Files.list(dirPath)
