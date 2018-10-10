@@ -1,0 +1,8 @@
+https://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html
+
+http://zetcode.com/java/inputstream/
+
+https://en.wikipedia.org/wiki/Asynchronous_I/O
+
+https://chasethedevil.github.io/post/non-blocking-with-traditional-java-io---on-the-use-of-inputstream.available-and-thread.sleep/
+https://softwareengineering.stackexchange.com/questions/337225/parsing-multiple-files-and-their-contents-in-java-using-multithreading-without-e?answertab=active#tab-top
