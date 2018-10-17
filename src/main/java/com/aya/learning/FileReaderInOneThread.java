@@ -9,6 +9,8 @@ package com.aya.learning;
  */
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -31,15 +33,31 @@ public class FileReaderInOneThread {
                 .collect(Collectors.toList());
     }
 
-    public List<IOStreamHelper> compileHeplersByFilePathes(List<Path> filePathslist) {
+    public List<ContentReader> compileHeplersByFilePathes(List<Path> filePathslist) {
         return filePathslist.stream()
-                .map(IOStreamHelper::create)
+                .map(ContentReader::create)
                 .collect(Collectors.toList());
     }
 
-    public Optional<IOStreamHelper> getAvailableForRead(List<IOStreamHelper> helpers) {
+    public ContentReader getAvailableForRead(List<ContentReader> helpers) {
         return helpers.stream()
-                .filter(IOStreamHelper::isAvailable)
-                .findFirst();
+                .filter(ContentReader::isContentNotOver)
+                .filter(ContentReader::isAvailable)
+                .findFirst()
+                .orElse(null);
     }
+
+/*    public List<ContentURLReader> compileHeplersByFilePathes(List<URL> filePathslist) {
+        return filePathslist.stream()
+                .map(ContentURLReader::create)
+                .collect(Collectors.toList());
+    }
+
+    public ContentURLReader getAvailableForRead(List<ContentURLReader> helpers) {
+        return helpers.stream()
+                .filter(ContentURLReader::isContentNotOver)
+                .filter(ContentURLReader::isAvailable)
+                .findFirst()
+                .orElse(null);
+    }*/
 }
